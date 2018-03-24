@@ -1,0 +1,31 @@
+{
+  "extends": "airbnb-base",
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "rules": {
+    "spaced-comment": 0,
+    "padded-blocks": 0,
+    "consistent-return": 0,
+    "no-underscore-dangle": 0,
+    "prefer-arrow-callback": 0,
+    "func-names": ["error"],
+    "strict": 0,
+    "no-param-reassign": 0,
+    "class-methods-use-this": 0
+  },
+  "globals": {
+    "__DEV__": true,
+    "after": true,
+    "afterAll": true,
+    "afterEach": true,
+    "before": true,
+    "beforeAll": true,
+    "beforeEach": true,
+    "describe": true,
+    "expect": true,
+    "it": true,
+    "jest": true,
+    "test": true
+  }
+}
