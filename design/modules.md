@@ -43,7 +43,8 @@ keep track of your final prints to be able to create replicable work
 
 ### Tools
 
+* Bellows Factor
 * DOF Calculator/Conversion
-* FOV Converion/Conversion
+* FOV Conversion
 * Reciprocity Calculator
 * Light meter
