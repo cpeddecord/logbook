@@ -1,0 +1,14 @@
+FROM node:12 as builder
+
+WORKDIR /usr/web-app
+COPY . /usr/web-app
+
+RUN npm i
+
+FROM node:12 as runner
+
+WORKDIR /usr/web-app
+COPY --from=builder /usr/web-app /usr/web-app
+
+EXPOSE 3000
+CMD ["npm", "start"]

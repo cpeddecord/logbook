@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  # Node.js web app with hot-reload
+  web-app:
+    image: web-app-dev:latest
+    container_name: web-app-dev
+    restart: always
+    build:
+      context: ./web-app
+      dockerfile: Dockerfile.dev
+      target: runner
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web-app/src:/usr/web-app/src
+      - ./web-app/public:/usr/web-app/public
+
+  # Go server with Air for hot-reload
+  server:
+    image: server-dev:latest
+    container_name: server-dev
+    restart: always
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+      target: runner
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./server:/usr/server

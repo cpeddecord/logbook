@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  # Node.js web app
+  web-app:
+    image: web-app:latest
+    container_name: web-app
+    restart: always
+    build:
+      context: ./web-app
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - "3000:3000"
+
+  # Go server
+  server:
+    image: server:latest
+    container_name: server
+    restart: always
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - "4000:4000"

@@ -1,0 +1,7 @@
+FROM cosmtrek/air as runner
+
+WORKDIR /usr/server
+COPY . /usr/server
+
+EXPOSE 4000
+CMD ["air"]
