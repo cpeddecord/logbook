@@ -1,5 +1,8 @@
 .env
-
 .DS_Store
 
 tmp
+
+# generated https keys/certs
+nginx/certs/*.key
+nginx/certs/*.crt

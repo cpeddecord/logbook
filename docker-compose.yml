@@ -12,6 +12,9 @@ services:
       target: runner
     ports:
       - "3000:3000"
+    environment:
+      VIRTUAL_HOST: local.logbook.com
+      VIRTUAL_PORT: 8080
     volumes:
       - ./web-app/src:/usr/web-app/src
       - ./web-app/public:/usr/web-app/public
@@ -27,5 +30,19 @@ services:
       target: runner
     ports:
       - "4000:4000"
+    environment:
+      VIRTUAL_HOST: local-api.logbook.com
+      VIRTUAL_PORT: 8080
     volumes:
       - ./server:/usr/server
+
+  # nginx proxy for local https
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:3000"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx/certs:/etc/nginx/certs
